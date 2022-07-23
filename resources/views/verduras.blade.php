@@ -20,5 +20,5 @@
 
 @section('footer')
     @parent
-    <h4>Creado por Grupo 2</h4>
+    <h4>Creado por Grupo 2 22-07-2022</h4>
 @stop
