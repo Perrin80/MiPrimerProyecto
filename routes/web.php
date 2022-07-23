@@ -17,20 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contacto/{nombre?}/{edad?}', function ($nombre="Johanna", $edad=18) {
+Route::get('/contacto/{SKU?}/{edad?}', function ($SKU="10002K", $nombre="Tomato") {
     return view('contacto')
+        ->with('SKU', $SKU)
         ->with('nombre', $nombre)
-        ->with('edad', $edad)
-        ->with('frutas', array('naranja', 'Pera', 'Frutilla', 'Manzana'))
+        ->with('productos', array('naranja', 'Pera', 'Frutilla', 'Manzana'))
         ;
 }) ->where([
     'nombre'    => '[A-Za-z]+',
-    'edad'      => '[0-9]+'
+    //'edad'      => '[0-9]+'
 ])
 ;
 
-Route::get('/verduras', 'App\Http\Controllers\VerdurasController@index');
-Route::get('/verdurasAgregar', 'App\Http\Controllers\VerdurasController@agregar')->name('AgregarVerduras');
-Route::get('/verdurasEliminar', 'App\Http\Controllers\VerdurasController@eliminar')->name('EliminarVerduras');
+Route::get('/productos', 'App\Http\Controllers\ProductosController@index');
+Route::get('/productosAgregar', 'App\Http\Controllers\ProductosController@agregar')->name('AgregarProductos');
+Route::get('/productosEliminar', 'App\Http\Controllers\ProductosController@eliminar')->name('EliminarProductos');
 
-Route::post('/verdurasGuardar', 'App\Http\Controllers\VerdurasController@guardar');
+Route::post('/productosGuardar', 'App\Http\Controllers\ProductosController@guardar');

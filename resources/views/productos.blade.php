@@ -2,19 +2,19 @@
 @section('title','Contacto')
 
 @section('header')
-    <h2>Formulario de contacto </h2>
+    <h2>Formulario de productos</h2>
 @stop
 
 @section('content')
 
-@foreach($verduras as $verdura)
-    <p> {{ $verdura }}
+@foreach($productos as $producto)
+    <p> {{ $producto }}
 @endforeach
 
 <hr>
 
-<a href="{{ route('AgregarVerduras') }}">Agregar</a>
-<a href="{{ route('EliminarVerduras') }}">Eliminar</a>
+<a href="{{ route('AgregarProductos') }}">Agregar</a>
+<a href="{{ route('EliminarProductos') }}">Eliminar</a>
 
 @stop
 

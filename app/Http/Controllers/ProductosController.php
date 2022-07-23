@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class VerdurasController extends Controller
+class ProductosController extends Controller
 {
     public function index(){
-        return view('verduras')
-        ->with('verduras', array('Lechuga', 'Toamte', 'Papa', 'Palta'));
+        return view('productos')
+        ->with('productos', array('Lechuga', 'Tomate', 'Papa', 'Palta'));
     }
 
     public function agregar(){
-        return view('agregarverduras');
+        return view('agregarProductos');
     }
 
     public function eliminar(){
@@ -21,8 +21,10 @@ class VerdurasController extends Controller
 
     public function guardar(Request $request){
         //dd($request);
-        return "Nombre: ". $request->input("nombre"). ", Precio: $". $request->input("precio")
+        return "SKU: ". $request->input("SKU"). ", Nombre: ". $request->input("nombre")
         ;
     }
 }
+
+
 

@@ -7,12 +7,12 @@
 
 @section('content')
 
-Bienvenido {{ $nombre }} tiene {{ $edad }} años
+Bienvenido {{ $SKU }} tiene {{ $nombre }} años
 
 {{-- Esto es un comentario --}}
 
 <hr>
-<h3>Uso de IF</h3>
+{{-- <h3>Uso de IF</h3>
 @if($edad >= 18)
     <p>Es mayor de edad</p>
 @else()
@@ -43,6 +43,7 @@ Bienvenido {{ $nombre }} tiene {{ $edad }} años
 @endforeach
 
 @stop
+---}}
 
 @section('footer')
     @parent
