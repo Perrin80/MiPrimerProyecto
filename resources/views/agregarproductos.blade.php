@@ -2,12 +2,12 @@
 @section('title','Agregar Producto')
 
 @section('header')
-    <h2>Agrega tu producto</h2>
+    <h2 class="text-center mt-3">Agrega tu producto</h2>
 @stop
 
 @section('content')
 
-<form method="POST" action="{{ url('/productosGuardar') }}">
+<form method="POST" action="{{ url('/productos') }}">
     <div class="mb-3">
         <label for="nombre" class="form-label fw-bold">SKU</label>
         <input type="text" class="form-control" id="SKU" name="SKU" placeholder="Codigo del producto">
@@ -25,16 +25,18 @@
         <input type="number" class="form-control" id="nombre" name="cantidad" placeholder="Cantidad del producto">
     </div>
     <div>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Selecciona la categoria del producto.</option>
-            <option value="1">Categoria 1</option>
-            <option value="2">Categoria 2</option>
-            <option value="3">Categoria 3</option>
+     <label for="categoria" class="form-label fw-bold">Categoria</label>
+        <select class="form-select" aria-label="Default select example" name="categoria" value="" required>
+            <option value="">Selecciona la categoria del producto.</option>
+            <option value="1">Iluminacion</option>
+            <option value="2">Tecnologia</option>
+            <option value="3">Electronica</option>
         </select>
     </div><br> 
     <div>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Selecciona la sucursal del producto.</option>
+        <label for="sucursal" class="form-label fw-bold">Sucursal</label>
+        <select class="form-select" aria-label="Default select example" name="sucursal" value="" required>
+            <option value="">Selecciona la sucursal del producto.</option>
             <option value="norte">Norte</option>
             <option value="centro">Centro</option>
             <option value="sur">Sur</option>
@@ -45,20 +47,10 @@
 
 <hr>
 
-<a class="btn btn-primary" href="{{ route('AgregarProductos') }}" role="button">Agregar</a>
-<a class="btn btn-danger" href="{{ route('EliminarProductos') }}" role="button">Eliminar</a>
+<!-- <a class="btn btn-primary" href="{{ route('AgregarProductos') }}" role="button">Agregar</a>
+<a class="btn btn-danger" href="{{ route('EliminarProductos') }}" role="button">Eliminar</a> -->
 
-
-
-
-
-
-{{--<a href="{{ route('AgregarProductos') }}">Agregar</a>
-<a href="{{ route('EliminarProductos') }}">Eliminar</a>--}}
+<a href="{{ route('home') }}" class="btn btn-info text-white">Regresar</a>
 
 @stop
 
-@section('footer')
-    @parent
-    <h4>Creado por Grupo 2</h4>
-@stop

@@ -29,8 +29,8 @@ Route::get('/contacto/{SKU?}/{edad?}', function ($SKU="10002K", $nombre="Tomato"
 ])
 ;
 
-Route::get('/productos', 'App\Http\Controllers\ProductosController@index');
+Route::get('/productos', 'App\Http\Controllers\ProductosController@index')->name('home');
 Route::get('/productosAgregar', 'App\Http\Controllers\ProductosController@agregar')->name('AgregarProductos');
 Route::get('/productosEliminar', 'App\Http\Controllers\ProductosController@eliminar')->name('EliminarProductos');
 
-Route::post('/productosGuardar', 'App\Http\Controllers\ProductosController@guardar');
+Route::post('/productos', 'App\Http\Controllers\ProductosController@guardar');

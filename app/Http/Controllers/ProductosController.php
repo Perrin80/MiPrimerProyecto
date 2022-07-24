@@ -2,17 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use Cache;
+
 use Illuminate\Http\Request;
 
+
 class ProductosController extends Controller
+
 {
+    protected $allProducts = array(
+            array(
+                "SKU" => "1",
+                "nombre" => "Ampolleta",
+                "precio" => "100",
+                "cantidad" => "1",
+                "categoria" => "1",
+                "sucursal" => "Norte",
+            )
+    );    
+    
     public function index(){
-        return view('productos')
-        ->with('productos', array('Lechuga', 'Tomate', 'Papa', 'Palta'));
+        $this->allProducts = Cache::get('allProducts');
+        return view('productos', [ "allProducts" => $this->allProducts ]);
     }
 
     public function agregar(){
-        return view('agregarProductos');
+        $this->allProducts = Cache::get('allProducts');
+        return view('agregarProductos', [ "allProducts" => $this->allProducts ]);
     }
 
     public function eliminar(){
@@ -20,9 +36,18 @@ class ProductosController extends Controller
     }
 
     public function guardar(Request $request){
-        //dd($request);
-        return "SKU: ". $request->input("SKU"). ", Nombre: ". $request->input("nombre")
-        ;
+        $this->allProducts = Cache::get('allProducts');
+        array_push($this->allProducts,[
+            "SKU" => $request->input("SKU"),
+            "nombre" => $request->input("nombre"),
+            "precio" => $request->input("precio"),
+            "cantidad" => $request->input("cantidad"),
+            "categoria" => $request->input("categoria"),
+            "sucursal" => $request->input("sucursal"),
+    ]);
+        Cache::put('allProducts', $this->allProducts);
+        // print(json_encode($this->allProducts));
+        return view('productos', [ "allProducts" => $this->allProducts ]);
     }
 }
 

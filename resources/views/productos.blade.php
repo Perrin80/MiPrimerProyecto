@@ -2,28 +2,43 @@
 @section('title','Contacto')
 
 @section('header')
-    <h2>Formulario de productos</h2>
+    <h2 class="text-center">Formulario de productos</h2>
 @stop
 
 @section('content')
 
-@foreach($productos as $producto)
-<p>
-<div class="card" style="width: 18rem;">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"> {{ $producto }} </li>
-  </ul>
-</div>
-@endforeach
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SKU</th>
+      <th scope="col">nombre</th>
+      <th scope="col">precio</th>
+      <th scope="col">cantidad</th>
+      <th scope="col">categoria</th>
+      <th scope="col">sucursal</th>
 
-<hr>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach($allProducts as $product)
+    <tr>
+      <td>{{json_encode($product["SKU"])}}</td>
+      <td>{{json_encode($product["nombre"])}}</td>
+      <td>{{json_encode($product["precio"])}}</td>
+      <td>{{json_encode($product["cantidad"])}}</td>
+      <td>{{json_encode($product["categoria"])}}</td>
+      <td>{{json_encode($product["sucursal"])}}</td>
+    </tr>
+    @endforeach
 
-<a class="btn btn-primary" href="{{ route('AgregarProductos') }}" role="button">Agregar</a>
-<a class="btn btn-danger" href="{{ route('EliminarProductos') }}" role="button">Eliminar</a>
+  </tbody>
+</table>
+
+
+<!-- <a class="btn btn-danger" href="{{ route('EliminarProductos') }}" role="button">Eliminar</a> -->
 
 @stop
 
 @section('footer')
     @parent
-    <h4>Creado por Grupo 2</h4>
 @stop
