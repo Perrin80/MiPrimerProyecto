@@ -47,9 +47,6 @@
 
 <hr>
 
-<!-- <a class="btn btn-primary" href="{{ route('AgregarProductos') }}" role="button">Agregar</a>
-<a class="btn btn-danger" href="{{ route('EliminarProductos') }}" role="button">Eliminar</a> -->
-
 <a href="{{ route('home') }}" class="btn btn-info text-white">Regresar</a>
 
 @stop
