@@ -34,9 +34,6 @@
   </tbody>
 </table>
 
-
-<!-- <a class="btn btn-danger" href="{{ route('EliminarProductos') }}" role="button">Eliminar</a> -->
-
 @stop
 
 @section('footer')
