@@ -22,7 +22,12 @@ class ProductosController extends Controller
     );    
     
     public function index(){
-        $this->allProducts = Cache::get('allProducts');
+        if(is_null(Cache::get('allProducts'))){
+            Cache::put('allProducts', $this->allProducts);        
+        } else{
+            $this->allProducts = Cache::get('allProducts');
+        }
+
         return view('productos', [ "allProducts" => $this->allProducts ]);
     }
 
