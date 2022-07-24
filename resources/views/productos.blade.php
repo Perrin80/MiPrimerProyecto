@@ -8,17 +8,22 @@
 @section('content')
 
 @foreach($productos as $producto)
-    <p> {{ $producto }}
+<p>
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> {{ $producto }} </li>
+  </ul>
+</div>
 @endforeach
 
 <hr>
 
-<a href="{{ route('AgregarProductos') }}">Agregar</a>
-<a href="{{ route('EliminarProductos') }}">Eliminar</a>
+<a class="btn btn-primary" href="{{ route('AgregarProductos') }}" role="button">Agregar</a>
+<a class="btn btn-danger" href="{{ route('EliminarProductos') }}" role="button">Eliminar</a>
 
 @stop
 
 @section('footer')
     @parent
-    <h4>Creado por Grupo 2 22-07-2022</h4>
+    <h4>Creado por Grupo 2</h4>
 @stop

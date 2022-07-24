@@ -9,19 +9,19 @@
 
 <form method="POST" action="{{ url('/productosGuardar') }}">
     <div class="mb-3">
-        <label for="nombre" class="form-label">SKU</label>
+        <label for="nombre" class="form-label fw-bold">SKU</label>
         <input type="text" class="form-control" id="SKU" name="SKU" placeholder="Codigo del producto">
     </div>
     <div class="mb-3">
-        <label for="precio" class="form-label">Nombre</label>
+        <label for="precio" class="form-label fw-bold">Nombre</label>
         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto">
     </div>
     <div class="mb-3">
-        <label for="precio" class="form-label">Precio</label>
+        <label for="precio" class="form-label fw-bold">Precio</label>
         <input type="number" class="form-control" id="nombre" name="precio" placeholder="$ - Precio del producto">
     </div>
     <div class="mb-3">
-        <label for="precio" class="form-label">Cantidad</label>
+        <label for="precio" class="form-label fw-bold">Cantidad</label>
         <input type="number" class="form-control" id="nombre" name="cantidad" placeholder="Cantidad del producto">
     </div>
     <div>
