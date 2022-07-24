@@ -16,7 +16,7 @@ class ProductosController extends Controller
                 "nombre" => "Ampolleta",
                 "precio" => "100",
                 "cantidad" => "1",
-                "categoria" => "1",
+                "categoria" => "Iluminacion",
                 "sucursal" => "Norte",
             )
     );    
