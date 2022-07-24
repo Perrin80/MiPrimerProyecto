@@ -53,4 +53,3 @@
 <a href="{{ route('home') }}" class="btn btn-info text-white">Regresar</a>
 
 @stop
-

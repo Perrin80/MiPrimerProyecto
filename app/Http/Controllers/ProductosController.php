@@ -1,14 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Cache;
-
 use Illuminate\Http\Request;
 
-
 class ProductosController extends Controller
-
 {
     protected $allProducts = array(
             array(
@@ -27,7 +23,6 @@ class ProductosController extends Controller
         } else{
             $this->allProducts = Cache::get('allProducts');
         }
-
         return view('productos', [ "allProducts" => $this->allProducts ]);
     }
 
@@ -51,10 +46,6 @@ class ProductosController extends Controller
             "sucursal" => $request->input("sucursal"),
     ]);
         Cache::put('allProducts', $this->allProducts);
-        // print(json_encode($this->allProducts));
         return view('productos', [ "allProducts" => $this->allProducts ]);
     }
 }
-
-
-
