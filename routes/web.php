@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/productos', 'App\Http\Controllers\ProductosController@index')->name('home');
-Route::get('/productosAgregar', 'App\Http\Controllers\ProductosController@agregar')->name('AgregarProductos');
-/*
-Route::get('/productosEliminar', 'App\Http\Controllers\ProductosController@eliminar')->name('EliminarProductos');
-*/
-Route::post('/productos', 'App\Http\Controllers\ProductosController@guardar');
+Route::get('/asignar', 'App\Http\Controllers\ProductosController@asignar')->name('asignar');
+Route::post('/guardarAsignacion', 'App\Http\Controllers\ProductosController@guardarAsignacion')->name('guardarAsignacion');
+Route::get('/encontrarProducto', 'App\Http\Controllers\ProductosController@encontrarProducto')->name('encontrarProducto');
+
+Route::resource('productos', 'App\Http\Controllers\ProductosController');
+Route::resource('sucursales', 'App\Http\Controllers\SucursalesController');
