@@ -15,8 +15,6 @@
       <th scope="col">Descripción</th>
       <th scope="col">Categoría</th>
       <th scope="col">Sucursal</th>
-      <th scope="col">Eliminar</th>
-
     </tr>
   </thead>
   <tbody>
