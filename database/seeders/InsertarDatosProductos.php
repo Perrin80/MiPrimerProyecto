@@ -20,6 +20,7 @@ class InsertarDatosProductos extends Seeder
                 'SKU' => 1,
                 'nombre' => 'Ampolleta',
                 'descripcion' => 'Ampolleta 350 watts',
+                'imagenproducto' => 'https://byp.cl/media/catalog/product/0/0/001009326_4.jpg',
                 'categoria_id' => 1,
                 'sucursal_id' => 1
             ],
@@ -27,6 +28,7 @@ class InsertarDatosProductos extends Seeder
                 'SKU' => 2,
                 'nombre' => 'Playstation 5',
                 'descripcion' => 'Consola de videojuegos',
+                'imagenproducto' => 'https://clsonyb2c.vtexassets.com/arquivos/ids/428948/PS5_Fisica_DS.jpg',
                 'categoria_id' => 2,
                 'sucursal_id' => 2
             ],
@@ -34,6 +36,7 @@ class InsertarDatosProductos extends Seeder
                 'SKU' => 3,
                 'nombre' => 'Macbook Pro',
                 'descripcion' => 'Laptop Apple Sylicon',
+                'imagenproducto' => 'https://i.blogs.es/e1fe2b/apple-macbook-pro-16/1366_2000.jpg',
                 'categoria_id' => 3,
                 'sucursal_id' => 3
             ]

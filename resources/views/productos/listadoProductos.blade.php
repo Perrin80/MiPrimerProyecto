@@ -11,6 +11,7 @@
   <thead>
     <tr>
       <th scope="col">SKU</th>
+      <th scope="col">Imagen Producto</th>
       <th scope="col">nombre</th>
       <th scope="col">Descripción</th>
       <th scope="col">Categoría</th>
@@ -21,6 +22,11 @@
   @foreach($productos as $product)
     <tr>
     <td><a href="/actualizarProducto/{{$product->id}}">{{$product->SKU}}</a></td>
+      @if(Storage::disk('images')->has($product->imagenproducto))
+      <td><img src="{{ url('imagenproductos/'.$product->imagenproducto) }}" width=200 alt="..."></td>
+      @else
+        <td><img src="{{$product['imagenproducto']}}" width=200 alt="..."></td>
+      @endif
       <td>{{$product["nombre"]}}</td>
       <td>{{$product["descripcion"]}}</td>
       <td>{{$product->categorias->nombre}}</td>

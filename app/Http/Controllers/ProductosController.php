@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 use App\Models\Producto;
 use App\Models\Sucursal;
@@ -93,6 +94,13 @@ class ProductosController extends Controller
             'descripcion' => 'required',
             'categoria_id' => 'required'
         ]);
+
+        $image = $request->file('imagenproducto');
+
+        if($image) {
+            $imagen_path = time()."-".$image->getClientOriginalName();
+            \Storage::disk('images')->put($imagen_path, \File::get($image));
+        }
         
         $categorias = Categoria::get();
         $producto = new Producto();
@@ -100,6 +108,7 @@ class ProductosController extends Controller
         $producto->SKU = $request->SKU;
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
+        $producto->imagenproducto = $imagen_path;
         $producto->categoria_id = $request->categoria_id;
         $producto->sucursal_id = null;
         $producto->save();
@@ -110,6 +119,11 @@ class ProductosController extends Controller
         return view('productos.listadoProductos', [
         'productos' => $productos
         ]);
+    }
+
+    public function getImagen($filename){
+        $file = \Storage::disk('images')->get($filename);
+        return new Response($file, 200);
     }
 
 

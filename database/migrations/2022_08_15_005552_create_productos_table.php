@@ -17,6 +17,7 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->string('SKU', 50);
             $table->string('nombre', 50);
+            $table->text('imagenproducto');
             $table->text('descripcion');
             $table->foreignId('categoria_id')->references('id')->on('categorias');
             $table->foreignId('sucursal_id')->nullable()->unsigned()->references('id')->on('sucursales');
