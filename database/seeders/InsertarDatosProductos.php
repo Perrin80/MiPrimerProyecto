@@ -19,14 +19,14 @@ class InsertarDatosProductos extends Seeder
             [
                 'SKU' => 1,
                 'nombre' => 'Ampolleta',
-                'descripcion' => 'Ampolleta 350 watts',
+                'descripcion' => 'Ampolleta 80 watts',
                 'imagenproducto' => 'https://byp.cl/media/catalog/product/0/0/001009326_4.jpg',
                 'categoria_id' => 1,
             ],
             [
                 'SKU' => 2,
                 'nombre' => 'Playstation 5',
-                'descripcion' => 'Consola de videojuegos',
+                'descripcion' => 'Consola de Videojuegos',
                 'imagenproducto' => 'https://clsonyb2c.vtexassets.com/arquivos/ids/428948/PS5_Fisica_DS.jpg',
                 'categoria_id' => 2,
             ],
