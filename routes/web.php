@@ -24,6 +24,10 @@ Route::get('/actualizarProducto/{id}', 'App\Http\Controllers\ProductosController
 Route::post('/updateProducto', 'App\Http\Controllers\ProductosController@updateProducto');
 Route::post('/deleteProducto/{id}', 'App\Http\Controllers\ProductosController@deleteProducto');
 
+Route::get('/asignarSucursales/{id}', 'App\Http\Controllers\ProductosController@asignarSucursales');
+Route::post('/asignarMultiple', 'App\Http\Controllers\ProductosController@asignarMultiple');
+
+
 Route::resource('productos', 'App\Http\Controllers\ProductosController');
 Route::resource('sucursales', 'App\Http\Controllers\SucursalesController');
 

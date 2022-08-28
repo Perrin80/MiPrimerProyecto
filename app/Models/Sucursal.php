@@ -13,7 +13,7 @@ class Sucursal extends Model
 
     public function productos(){
 
-        return $this->hasMany('App\Models\Producto');
+        return $this->belongsToMany('App\Models\Producto');
 
     }
 

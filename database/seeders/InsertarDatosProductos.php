@@ -21,21 +21,18 @@ class InsertarDatosProductos extends Seeder
                 'nombre' => 'Ampolleta',
                 'descripcion' => 'Ampolleta 350 watts',
                 'categoria_id' => 1,
-                'sucursal_id' => 1
             ],
             [
                 'SKU' => 2,
                 'nombre' => 'Playstation 5',
                 'descripcion' => 'Consola de videojuegos',
                 'categoria_id' => 2,
-                'sucursal_id' => 2
             ],
             [
                 'SKU' => 3,
                 'nombre' => 'Macbook Pro',
                 'descripcion' => 'Laptop Apple Sylicon',
                 'categoria_id' => 3,
-                'sucursal_id' => 3
             ]
         ));
         $this -> command->info("Datos agregados correctamente");

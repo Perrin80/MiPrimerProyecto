@@ -14,14 +14,6 @@ class ProductosController extends Controller
 {    
     public function index(){
         $productos = Producto::get();
-        // $productos = Producto::where('id', 1)->get();
-        // $productos = Producto::where('id', 1)->get()->load('sucursales');
-        // dd($productos);
-        // dd($productos[0]->nombre);
-        // dd($productos[0]->sucursales->nombre);
-
-        // * $request = "Dr";
-        // $productos = Producto::where('nombre', 'LIKE', '%'.$request, '%')->get();
         return view('productos.listadoProductos', [
             'productos' => $productos
         ]);
@@ -101,7 +93,7 @@ class ProductosController extends Controller
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
         $producto->categoria_id = $request->categoria_id;
-        $producto->sucursal_id = null;
+        // $producto->sucursal_id = null;
         $producto->save();
         
 
@@ -154,6 +146,57 @@ class ProductosController extends Controller
         return view('productos.listadoProductos', [
             'productos' => $productos
         ]);
+
+    }
+
+    public function asignarSucursales($id){
+        $producto = Producto::where('id', $id)->get();
+
+        $sucursales = Sucursal::get();
+
+        $sucursalesactuales = Sucursal::whereHas('productos', function ($q) use ($id) {
+            $q->where('sucursal_id', $id);
+        })->get();
+
+
+        return view('productos.asignarMultiple', [
+            'producto' => $producto,
+            'sucursalesactuales' => $sucursalesactuales,
+            'sucursales' => $sucursales
+        ]);    
+
+    }
+
+
+    public function asignarMultiple(Request $request){
+
+        $producto = Producto::where('id', $request->producto_id)->first();
+
+        $request1 = $request->input('sucursal_id1');
+        $request2 = $request->input('sucursal_id2');
+        $request3 = $request->input('sucursal_id3');
+
+        $suc = array();
+
+        if($request1 != null){
+            array_push($suc, $request1);
+        }
+        if($request2 != null){
+            array_push($suc, $request2);
+        }
+        if($request3 != null){
+            array_push($suc, $request3);
+        }
+
+        $producto->sucursales()->attach($suc);
+
+        $productos = Producto::get();
+
+        return view('productos.listadoProductos', [
+            'productos' => $productos
+        ]);
+
+
 
     }
 
