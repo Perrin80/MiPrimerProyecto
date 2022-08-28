@@ -20,11 +20,16 @@
   <tbody>
   @foreach($productos as $product)
     <tr>
-      <td>{{$product["SKU"]}}</td>
+    <td><a href="/actualizarProducto/{{$product->id}}">{{$product->SKU}}</a></td>
       <td>{{$product["nombre"]}}</td>
       <td>{{$product["descripcion"]}}</td>
       <td>{{$product->categorias->nombre}}</td>
       <td>{{$product->sucursales->nombre ?? 'Sin sucursal'}}</td>
+      <td>
+        <form method="POST" action="/deleteProducto/{{$product->id}}">
+          <button type="summit" class="btn btn-primary">Eliminar</button>
+        </form>
+      </td>
     </tr>
     @endforeach
 

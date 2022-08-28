@@ -16,18 +16,19 @@
       <th scope="col">cantidad</th>
       <th scope="col">categoria</th>
       <th scope="col">sucursal</th>
-
+      <th scope="col">Eliminar</th>
     </tr>
   </thead>
   <tbody>
   @foreach($allProducts as $product)
     <tr>
-      <td>{{json_encode($product["SKU"])}}</td>
+      <td><a href="/actualizarProducto/{{$product->id}}">{{json_encode($product["nombre"])}}</a></td>
       <td>{{json_encode($product["nombre"])}}</td>
       <td>{{json_encode($product["precio"])}}</td>
       <td>{{json_encode($product["cantidad"])}}</td>
       <td>{{json_encode($product["categoria"])}}</td>
       <td>{{json_encode($product["sucursal"])}}</td>
+      <td><a href="/actualizarProducto/{{$product->id}}">Eliminar</a> </td>
     </tr>
     @endforeach
 

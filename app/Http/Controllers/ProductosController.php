@@ -7,6 +7,7 @@ use App\Models\Producto;
 use App\Models\Sucursal;
 use App\Models\Categoria;
 use App\Models\Stock;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 
 class ProductosController extends Controller
@@ -112,9 +113,10 @@ class ProductosController extends Controller
     }
 
 
-    public function destroy(Request $request){
-        $producto = Producto::where('id', $request->id)->delete();
-        print($request);
+    public function deleteProducto($id){
+        $stocks = Stock::where('producto_id', $id)->delete();
+
+        $producto = Producto::where('id', $id)->delete();
 
         $productos = Producto::get();
 
@@ -123,11 +125,36 @@ class ProductosController extends Controller
         ]);
     }
 
-    public function update(Request $request){
+    public function vistaActualizar($id){
+
+        $producto = Producto::where('id', $id)->get();
+
+        if(count($producto)>0){
+            return view('productos.actualizarProducto', [
+                'producto' => $producto
+            ]);    
+        }
+    }
+
+    public function updateProducto(Request $request){
+        $this->validate($request,[
+            'SKU' => 'required',
+            'nombre' => 'required',
+            'descripcion' => 'required'
+        ]);
+
+        Producto::where('id', $request->id)->update([
+            'SKU' => $request->SKU,
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion
+        ]);
 
         $productos = Producto::get();
+
         return view('productos.listadoProductos', [
             'productos' => $productos
         ]);
+
     }
+
 }
