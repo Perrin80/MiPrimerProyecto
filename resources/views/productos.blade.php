@@ -16,6 +16,7 @@
       <th scope="col">cantidad</th>
       <th scope="col">categoria</th>
       <th scope="col">sucursal</th>
+      <th scope="col">Imagen</th>
       <th scope="col">Eliminar</th>
     </tr>
   </thead>
@@ -27,6 +28,7 @@
       <td>{{json_encode($product["precio"])}}</td>
       <td>{{json_encode($product["cantidad"])}}</td>
       <td>{{json_encode($product["categoria"])}}</td>
+      <td>{{json_encode($product["imagen"])}}</td>
       <td>{{json_encode($product["sucursal"])}}</td>
       <td><a href="/actualizarProducto/{{$product->id}}">Eliminar</a> </td>
     </tr>

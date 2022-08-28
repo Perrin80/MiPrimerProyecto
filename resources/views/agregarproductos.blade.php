@@ -41,7 +41,11 @@
             <option value="centro">Centro</option>
             <option value="sur">Sur</option>
         </select>
-    </div><br>   
+    </div><br>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Default file input example</label>
+        <input class="form-control" type="file" id="formFile">
+    </div><br>
     <button type="summit" class="btn btn-primary">Guardar</button>
 </form>
 

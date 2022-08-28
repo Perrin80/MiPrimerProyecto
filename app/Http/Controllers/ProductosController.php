@@ -94,6 +94,7 @@ class ProductosController extends Controller
             'categoria_id' => 'required'
         ]);
         
+
         $categorias = Categoria::get();
         $producto = new Producto();
 
@@ -104,14 +105,12 @@ class ProductosController extends Controller
         $producto->sucursal_id = null;
         $producto->save();
         
-
         $productos = Producto::get();
 
         return view('productos.listadoProductos', [
         'productos' => $productos
         ]);
     }
-
 
     public function deleteProducto($id){
         $stocks = Stock::where('producto_id', $id)->delete();

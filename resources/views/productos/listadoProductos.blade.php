@@ -28,7 +28,9 @@
       <td>
         <form method="POST" action="/deleteProducto/{{$product->id}}">
           <button type="summit" class="btn btn-primary">Eliminar</button>
+      
         </form>
+      
       </td>
     </tr>
     @endforeach

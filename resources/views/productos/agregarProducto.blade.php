@@ -27,7 +27,7 @@
             <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
             @endforeach
         </select>
-    </div><br> 
+    </div><br>
     <button type="summit" class="btn btn-primary">Guardar</button>
 </form>
 

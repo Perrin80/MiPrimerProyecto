@@ -22,7 +22,7 @@
         <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{$producto[0]->descripcion}}" placeholder="Descripción del producto">
     </div>
     <div>
-    <button type="summit" class="btn btn-primary">Actualizar</button>
+    <button type="summit" class="btn btn-success">Actualizar</button>
 </form>
 
 @if($errors->any())
