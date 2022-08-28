@@ -19,7 +19,7 @@ class Producto extends Model
 
     public function sucursales(){
 
-        return $this->belongsTo('App\Models\Sucursal', 'sucursal_id');
+        return $this->belongsToMany('App\Models\Sucursal');
 
     }
 
@@ -28,5 +28,7 @@ class Producto extends Model
         return $this->hasMany('App\Models\Stock', 'stocks_id');
 
     }
+
+
 }
 

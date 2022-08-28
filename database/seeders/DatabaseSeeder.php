@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(InsertarDatosSucursales::class);
         $this->call(InsertarDatosProductos::class);
         $this->call(InsertarDatosStocks::class);
+        $this->call(InsertarDatosPivot::class);
+
     }
 }

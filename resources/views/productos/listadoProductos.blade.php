@@ -16,6 +16,8 @@
       <th scope="col">Descripción</th>
       <th scope="col">Categoría</th>
       <th scope="col">Sucursal</th>
+      <th scope="col">Asignar sucursales</th>
+      <th scope="col">Eliminar</th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +32,14 @@
       <td>{{$product["nombre"]}}</td>
       <td>{{$product["descripcion"]}}</td>
       <td>{{$product->categorias->nombre}}</td>
-      <td>{{$product->sucursales->nombre ?? 'Sin sucursal'}}</td>
+      <td>
+        @foreach($product->sucursales as $sucursal)
+        | {{$sucursal->nombre ?? 'Sin sucursal'}}
+        @endforeach
+      </td>
+
+      <td><a href="/asignarSucursales/{{$product->id}}">Asignar sucursales</a></td>
+
       <td>
         <form method="POST" action="/deleteProducto/{{$product->id}}">
           <button type="summit" class="btn btn-primary">Eliminar</button>

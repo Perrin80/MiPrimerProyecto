@@ -20,7 +20,6 @@ class CreateProductosTable extends Migration
             $table->text('imagenproducto');
             $table->text('descripcion');
             $table->foreignId('categoria_id')->references('id')->on('categorias');
-            $table->foreignId('sucursal_id')->nullable()->unsigned()->references('id')->on('sucursales');
             $table->timestamps();
         });
     }
