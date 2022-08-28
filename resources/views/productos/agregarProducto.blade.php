@@ -28,14 +28,11 @@
             @endforeach
         </select>
     </div><br>
-<<<<<<< HEAD
-=======
     <div class="mb-3">
         <label for="imagenproducto" class="form-label fw-bold">Imagen de Producto</label>
         <input type="file" class="form-control" id="imagenproducto" name="imagenproducto" accept=".png, .jpg, .jpeg">
     </div>
     <br> 
->>>>>>> 3aac1130274bab3e773b7aecc282108a1dcc82af
     <button type="summit" class="btn btn-primary">Guardar</button>
 </form>
 
